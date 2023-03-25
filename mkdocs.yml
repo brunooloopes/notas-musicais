@@ -1,9 +1,9 @@
-site_name: Notas Musicais
-repo_url: https://github.com/brunooloopes/notas-musicais
-repo_name: Notas Musicais
+site_name: Notas musicais
+repo_url: https://github.com/dunossauro/notas-musicais
+repo_name: dunossauro/notas-musicais
 edit_uri: tree/main/docs
 
-theme: 
+theme:
   name: material
   language: pt-BR
   logo: assets/logo.png
@@ -11,15 +11,30 @@ theme:
 
 markdown_extensions:
   - attr_list
+  - admonition
+  - pymdownx.tasklist
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 extra_css:
   - stylesheets/extra.css
 
 watch:
-  - notas_musicais
+   - notas_musicais
 
 plugins:
+- macros
 - mkdocstrings:
     handlers:
       python:
         paths: [notas_musicais]
+
+extra:
+  commands:
+    run: notas-musicais
